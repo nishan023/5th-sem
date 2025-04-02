@@ -1,0 +1,5 @@
+Name validation Regex
+    const nameRegex= /^[A-Za-z\s]{3,}$/   //s bhanya space, dollor le end of string 
+
+Email Regex validation
+    const emailRegex=/^\S[A-za-z](0-9)+@\S+\.\S+$/;

@@ -1,0 +1,23 @@
+1.Write a program to simulate Birthday Paradox in Excel.
+
+2.Write a program to encrypt and decrypt the user input message and key using Caesar cipher.
+
+3.Write a program to encrypt and decrypt the user input message and key using Playfair cipher.
+
+4.Write a program to encrypt and decrypt the user input message and rails using Rail-fence cipher.
+
+5.Write a program to simulate the generation of subkeys for DES algorithm (Hint: use 10 bits).
+
+6.Write a program to convert the user input message into state array.
+
+7.Write a program to test the prime numbers using Fermat’s theorem.
+
+8.Write a program to test the prime number using Miller-Rabin algorithm.
+
+9.Write a program to find the Euler totient function of user input integer.
+
+10.Write a program to test if user input two integers are primitive roots or not.
+
+11.Write a program to find the multiplicative inverse using Extended Euclidean algorithm.
+
+12.Write a program to simulate Diffie-Hellman key exchange algorithm.
