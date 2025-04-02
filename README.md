@@ -10,14 +10,14 @@ This repository encompasses code solutions for various lab assignments correspon
 
 Below is the list of subjects included in this repository:
 
-| Subject                                | Lab Folder Link                                               | Output Link                                                                                     |
-|----------------------------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| Design and Analysis of Algorithms (DAA)| [DAA Labs](./DAA)                                             | [DAA Outputs](https://drive.google.com/drive/folders/your_daa_output_link)                      |
-| System Analysis and Design (SAD)       | [SAD Labs](./SAD)                                             | [SAD Outputs](https://drive.google.com/drive/folders/your_sad_output_link)                      |
-| Cryptography                           | [Cryptography Labs](./Cryptography)                           | [Cryptography Outputs](https://drive.google.com/drive/folders/your_cryptography_output_link)    |
-| Simulation and Modeling (S&M)          | [S&M Labs](./Simulation_and_Modeling)                         | [S&M Outputs](https://drive.google.com/drive/folders/your_sm_output_link)                       |
-| Web Technology (WT)                    | [WT Labs](./Web_Technology)                                   | [WT Outputs](https://drive.google.com/drive/folders/your_wt_output_link)                        |
-| Elective I                             | [Elective I Labs](./Elective_I)                               | [Elective I Outputs](https://drive.google.com/drive/folders/your_elective1_output_link)         |
+| Subject                                 | Lab Folder Link                                                                                   | Output Link                                                                                  |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Design and Analysis of Algorithms (DAA) | [DAA ](https://github.com/nishan023/5th-sem/tree/master/Design%20and%20Analysis%20of%20Algorithm) | [DAA Outputs](https://drive.google.com/drive/folders/your_daa_output_link)                   |
+| System Analysis and Design (SAD)        | [SAD ](https://github.com/nishan023/5th-sem/tree/master/Design%20and%20Analysis%20of%20Algorithm) | [SAD Outputs](https://drive.google.com/drive/folders/your_sad_output_link)                   |
+| Cryptography                            | [Cryptography ](https://github.com/nishan023/5th-sem/tree/master/Cryptography)                    | [Cryptography Outputs](https://drive.google.com/drive/folders/your_cryptography_output_link) |
+| Simulation and Modeling (S&M)           | [S&M ](https://github.com/nishan023/5th-sem/tree/master/Simulation%20and%20Modeling)              | [S&M Outputs](https://drive.google.com/drive/folders/your_sm_output_link)                    |
+| Web Technology (WT)                     | [WT ](https://github.com/nishan023/5th-sem/tree/master/Web%20Technology)                          | [WT Outputs](https://drive.google.com/drive/folders/your_wt_output_link)                     |
+| Elective I                              | [Elective I ](./Elective_I)                                                                       | [Elective I Outputs](https://drive.google.com/drive/folders/your_elective1_output_link)      |
 
 **Elective I Options:**
 
