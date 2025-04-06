@@ -59,6 +59,11 @@ function stopInterval() {
   clearInterval(interval);
 }
 
+function showDate() {
+  var date = new Date();
+  document.getElementById("message").textContent = `Current Date is ${date}`;
+}
+
 //using arrow function
 
 let timeoutID;
