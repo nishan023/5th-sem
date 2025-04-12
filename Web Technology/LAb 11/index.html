@@ -12,8 +12,7 @@
     <!-- Mouse Event Section -->
     <h2>Mouse Event</h2>
     <p>This is a paragraph</p>
-    <p>This is another paragraph</p>
-    <p id="p-color">Change color of paragraph.</p>
+    <span id="color">Change color of paragraph.</span>
     <p id="test">This is another paragraph with ID</p>
     <p class="test">This is another paragraph with CLASS</p>
 
@@ -29,7 +28,7 @@
     <h2>Keypress Event</h2>
     <label for="Text">Enter text:</label>
     <input type="text" />
-    <div>Keypress Count: <span>0</span></div>
+    <div>Keypress Count: <b>0</b></div>
 
     <!-- Form Event Section -->
     <h2>Form Event</h2>
@@ -57,7 +56,7 @@
 
         // DOM Manipulation: CSS change
         $("#changeColor").click(function () {
-          $("#p-color").css("color", "red");
+          $("#color").css("color", "red");
         });
 
         // Fade Effect
@@ -98,7 +97,7 @@
         var i = 0;
         $('input[type="text"]').keypress(function () {
           i++;
-          $("span").text(i);
+          $("b").text(i);
         });
 
         // Form Event Handling
