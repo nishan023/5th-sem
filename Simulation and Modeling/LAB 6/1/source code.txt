@@ -1,0 +1,12 @@
+
+No need to write comments
+
+GENERATE 10,2           ; Customers arrive every 10 ± 2 minutes
+QUEUE SEAT              ; Customer joins the queue "SEAT"
+SEIZE BARBER            ; Customer seizes the barber if available
+DEPART SEAT             ; Customer leaves the waiting queue
+ADVANCE 13,2            ; Haircut takes 13 ± 2 minutes
+RELEASE BARBER          ; Customer releases the barber
+TERMINATE               ; Customer leaves the system
+TIMER GENERATE 420      ; Simulation clock runs for 420 minutes (7 hours)
+TERMINATE 1             ; Ends the simulation when the day is over
