@@ -14,7 +14,6 @@ double compute_no_rain_probability(int days)
     printf("Enter today's weather (1 for rain, 0 for no rain): ");
     scanf("%d", &today_rain);
 
-    // Calculate probabilities for the next two days
     double P_no_rain_next_day;
     double P_no_rain_after_next_day;
 
@@ -27,7 +26,6 @@ double compute_no_rain_probability(int days)
         P_no_rain_next_day = P_no_rain_tomorrow_if_no_rain_today;
     }
 
-    // Compute the probability of no rain the day after tomorrow
     P_no_rain_after_next_day = (P_no_rain_next_day * P_no_rain_tomorrow_if_rain_today) +
                                ((1 - P_no_rain_next_day) * P_no_rain_tomorrow_if_no_rain_today);
 

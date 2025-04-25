@@ -5,7 +5,6 @@ int main()
     int m, a, c, X, n;
     printf("\t****NISHAN DHAKAL****\n\n  ");
 
-    // User inputs
     printf("5 digit number means m should be 100000\n");
     printf("Enter modulus (m): ");
     scanf("%d", &m);
@@ -21,8 +20,8 @@ int main()
     printf("\nGenerated %d five-digit random integers:\n", n);
     for (int i = 0; i < n; i++)
     {
-        X = (a * X + c) % m; // Mixed Congruential Method formula
-        printf("%05d ", X);  // Ensures 5-digit format
+        X = (a * X + c) % m;
+        printf("%05d ", X);
     }
     printf("\n");
 

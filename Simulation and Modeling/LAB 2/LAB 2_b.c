@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <math.h>
 
-// Function to compute factorial
 double factorial(int n)
 {
     if (n == 0)
@@ -15,7 +14,6 @@ double factorial(int n)
     return fact;
 }
 
-// Function to compute Poisson probability
 double poisson_probability(int x, double lambda)
 {
     return (pow(lambda, x) * exp(-lambda)) / factorial(x);
@@ -24,14 +22,13 @@ double poisson_probability(int x, double lambda)
 int main()
 {
     double lambda;
-    int max_x = 15; // We compute for x = 0 to 15
+    int max_x = 15;
 
     printf("\t****NISHAN DHAKAL****\n\n  ");
-    // User input
+
     printf("Enter the mean arrival rate (lambda): ");
     scanf("%lf", &lambda);
 
-    // Display results
     printf("\nPoisson Distribution (Lambda = %.2f):\n", lambda);
     printf("X\tP(X)\n");
 

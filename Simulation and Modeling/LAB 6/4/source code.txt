@@ -1,0 +1,8 @@
+
+GENERATE  10,3     
+QUEUE     1
+SEIZE     1
+DEPART    1
+ADVANCE   8,4       
+RELEASE   1
+TERMINATE 1       
