@@ -1,45 +1,54 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
+#define MATRIX_SIZE 16
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 4
+
+void convertToStateArray(char message[], int stateArray[])
 {
-    char message[17]; // 16 chars + 1 for null terminator
-    char state[4][4];
-    int k = 0;
-    printf("\t****NISHAN DHAKAL****\n        ****State Array****\n\n");
-    printf("Enter a 16-character message: ");
-    fgets(message, sizeof(message), stdin);
-
-    // If user enters less than 16 characters, pad with spaces
-    int len = strlen(message);
-    if (len < 16)
+    for (int i = 0; i < MATRIX_SIZE; i++)
     {
-        for (int i = len; i < 16; i++)
+        if (message[i] != '\0')
         {
-            message[i] = ' ';
+            stateArray[i] = (int)message[i];
         }
-        message[16] = '\0'; // Null-terminate
-    }
-
-    // Fill state array column-wise
-    for (int col = 0; col < 4; col++)
-    {
-        for (int row = 0; row < 4; row++)
+        else
         {
-            state[row][col] = message[k++];
+            stateArray[i] = 0x00;
         }
     }
+}
 
-    // Display state array
-    printf("\nState Array:\n");
-    for (int row = 0; row < 4; row++)
+// Print the state array as a 4x4 hex matrix
+void printStateArrayMatrixHex(int stateArray[])
+{
+
+    printf("State Array :\n");
+    for (int i = 0; i < MATRIX_ROWS; i++)
     {
-        for (int col = 0; col < 4; col++)
+        for (int j = 0; j < MATRIX_COLS; j++)
         {
-            printf("%c ", state[row][col]);
+            int index = i * MATRIX_COLS + j;
+            printf("%02X ", stateArray[index]);
         }
         printf("\n");
     }
+}
+
+int main()
+{
+    char message[MATRIX_SIZE + 1];
+    int stateArray[MATRIX_SIZE];
+    printf("\t****NISHAN DHAKAL****\n        ****State Array****\n\n");
+    printf("Enter a 16-character message:  ");
+    fgets(message, sizeof(message), stdin);
+
+    message[strcspn(message, "\n")] = '\0';
+
+    convertToStateArray(message, stateArray);
+
+    printStateArrayMatrixHex(stateArray);
 
     return 0;
 }

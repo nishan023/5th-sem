@@ -1,82 +1,89 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-// Permutation tables
-int P10[10] = {3, 5, 2, 7, 4, 10, 1, 9, 8, 6};
-int P8[8] = {6, 3, 7, 4, 8, 5, 10, 9};
+// Permute bits according to a given table
+void permute(const char *input, char *output, const int *table, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        output[i] = input[table[i] - 1];
+    }
+    output[size] = '\0';
+}
 
-// Function to apply permutation
-void permute(int input[], int output[], int perm[], int n) {
-    for (int i = 0; i < n; i++) {
-        output[i] = input[perm[i] - 1];
+// Left circular shift for a 5-bit string
+void leftShift(const char *half, char *result, int shifts)
+{
+    for (int i = 0; i < 5; i++)
+    {
+        result[i] = half[(i + shifts) % 5];
+    }
+    result[5] = '\0';
+}
+
+// Generate multiple subkeys
+void generateSubKeys(const char *key10, int numKeys)
+{
+    int P10[10] = {3, 5, 2, 7, 4, 10, 1, 9, 8, 6};
+    int P8[8] = {6, 3, 7, 4, 8, 5, 10, 9};
+
+    char permutedKey[11];
+    permute(key10, permutedKey, P10, 10);
+
+    char left[6], right[6];
+    strncpy(left, permutedKey, 5);
+    left[5] = '\0';
+    strncpy(right, permutedKey + 5, 5);
+    right[5] = '\0';
+
+    int totalShift = 0;
+
+    for (int i = 1; i <= numKeys; i++)
+    {
+        int shift = (i == 1) ? 1 : 2;
+        totalShift += shift;
+
+        char lshifted[6], rshifted[6], combined[11], subkey[9];
+        leftShift(left, lshifted, totalShift % 5);
+        leftShift(right, rshifted, totalShift % 5);
+
+        strcpy(left, lshifted);
+        strcpy(right, rshifted);
+
+        snprintf(combined, 11, "%s%s", lshifted, rshifted);
+        permute(combined, subkey, P8, 8);
+
+        printf("Subkey K%d: %s\n", i, subkey);
     }
 }
 
-// Function for left shift
-void leftShift(int key[], int shifts, int size) {
-    for (int s = 0; s < shifts; s++) {
-        int temp = key[0];
-        for (int i = 0; i < size - 1; i++) {
-            key[i] = key[i + 1];
-        }
-        key[size - 1] = temp;
-    }
-}
+int main()
+{
+    char key10[11];
+    int numKeys;
 
-int main() {
-    int key[10], permutedKey[10], left[5], right[5], combined[10], subKey1[8], subKey2[8];
     printf("\t****NISHAN DHAKAL****\n ****Sub generation for DES algorithm****\n\n");
-    printf("Enter 10-bit key (space-separated): ");
-    for (int i = 0; i < 10; i++) {
-        scanf("%d", &key[i]);
+    printf("Enter a 10-bit key (e.g. 1010000010): ");
+    scanf("%10s", key10);
+
+    // Validate input
+    if (strlen(key10) != 10 || strspn(key10, "01") != 10 || key10[0] != '1')
+    {
+        printf("Invalid key. Key must be 10 bits, all 0s and 1s, and start with 1.\n");
+        return 1;
     }
 
-    // Step 1: Apply P10 permutation
-    permute(key, permutedKey, P10, 10);
+    printf("How many subkeys do you want to generate? ");
+    scanf("%d", &numKeys);
 
-    // Step 2: Split into two halves
-    for (int i = 0; i < 5; i++) {
-        left[i] = permutedKey[i];
-        right[i] = permutedKey[i + 5];
+    if (numKeys <= 0)
+    {
+        printf("Please enter a valid number greater than 0.\n");
+        return 1;
     }
 
-    // Step 3: Left shift both halves by 1
-    leftShift(left, 1, 5);
-    leftShift(right, 1, 5);
-
-    // Step 4: Combine halves
-    for (int i = 0; i < 5; i++) {
-        combined[i] = left[i];
-        combined[i + 5] = right[i];
-    }
-
-    // Step 5: Apply P8 to generate Subkey 1
-    permute(combined, subKey1, P8, 8);
-
-    // Step 6: Left shift both halves by 2
-    leftShift(left, 2, 5);
-    leftShift(right, 2, 5);
-
-    // Step 7: Combine halves again
-    for (int i = 0; i < 5; i++) {
-        combined[i] = left[i];
-        combined[i + 5] = right[i];
-    }
-
-    // Step 8: Apply P8 to generate Subkey 2
-    permute(combined, subKey2, P8, 8);
-
-    // Print the subkeys
-    printf("Subkey 1 (K1): ");
-    for (int i = 0; i < 8; i++) {
-        printf("%d", subKey1[i]);
-    }
-    printf("\n");
-
-    printf("Subkey 2 (K2): ");
-    for (int i = 0; i < 8; i++) {
-        printf("%d", subKey2[i]);
-    }
-    printf("\n");
+    generateSubKeys(key10, numKeys);
 
     return 0;
 }
